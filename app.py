@@ -19,7 +19,7 @@ data = pd.read_csv("cursos.csv", sep=";")
 
 # Passar os dados para limpeza
 df = cl.clear(df)
-data = cl.clear_cursos(data)
+#data = cl.clear_cursos(data)
 
 st.warning("Esse projeto é parte do Projeto L.U.N.A.H | Desenvolvedor: Jovi | Em fase de desenvolvimento")
 
