@@ -170,21 +170,21 @@ def get_cursos(data, df, curso):
     cotistasPaais60 = 0
 
     for i in notas:
-            if i >= valores[2]:
+            if i + 4 >= valores[2]:
                 naoCotistasPaais0 += 1
-            if i >= valores[3]:
+            if i + 4 >= valores[3]:
                 naoCotistasPaais20 += 1
-            if i >= valores[4]:
+            if i + 4 >= valores[4]:
                 naoCotistasPaais40 += 1
-            if i >= valores[5]:
+            if i + 4 >= valores[5]:
                 naoCotistasPaais60 += 1
-            if i >= valores[6]:
+            if i + 4 >= valores[6]:
                 cotistasPaais0 += 1
-            if i >= valores[7]:
+            if i + 4 >= valores[7]:
                 cotistasPaais20 += 1
-            if i >= valores[8]:
+            if i + 4 >= valores[8]:
                 cotistasPaais40 += 1
-            if i >= valores[9]:
+            if i + 4 >= valores[9]:
                 cotistasPaais60 += 1
 
 
