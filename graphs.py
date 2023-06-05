@@ -170,22 +170,23 @@ def get_cursos(data, df, curso):
     cotistasPaais60 = 0
 
     for i in notas:
-        if i >= valores[1]:
-            naoCotistasPaais0 += 1
-        if i >= valores[2]:
-            naoCotistasPaais20 += 1
-        if i >= valores[3]:
-            naoCotistasPaais40 += 1
-        if i >= valores[4]:
-            naoCotistasPaais60 += 1
-        if i >= valores[5]:
-            cotistasPaais0 += 1
-        if i >= valores[6]:
-            cotistasPaais20 += 1
-        if i >= valores[7]:
-            cotistasPaais40 += 1
-        if i >= valores[8]:
-            cotistasPaais60 += 1
+            if i >= valores[2]:
+                naoCotistasPaais0 += 1
+            if i >= valores[3]:
+                naoCotistasPaais20 += 1
+            if i >= valores[4]:
+                naoCotistasPaais40 += 1
+            if i >= valores[5]:
+                naoCotistasPaais60 += 1
+            if i >= valores[6]:
+                cotistasPaais0 += 1
+            if i >= valores[7]:
+                cotistasPaais20 += 1
+            if i >= valores[8]:
+                cotistasPaais40 += 1
+            if i >= valores[9]:
+                cotistasPaais60 += 1
+
 
     x = ["Não Cotista PAAIS (0)", "Não Cotista (20)", "Não Cotista (40)", "Não Cotista (60)",
          "Cotistas (0)", "Cotistas (20)", "Cotistas (40)", "Cotistas (60)"]
@@ -196,7 +197,7 @@ def get_cursos(data, df, curso):
     st.plotly_chart(fig)
 
     st.write(f"""
-             Curso: {valores[0]}\n
+             Curso: {valores[1]}\n
              Não Cotistas (PAAIS 0): {naoCotistasPaais0}\n
              Não Cotistas (PAAIS 20): {naoCotistasPaais20}\n
              Não Cotistas (PAAIS 40): {naoCotistasPaais40}\n
@@ -207,3 +208,22 @@ def get_cursos(data, df, curso):
              Cotistas (PAAIS 60): {cotistasPaais60}\n
              """)
 
+def plot_student(df, name):
+    row = df.query(f"Nome == '{name}'")
+    totais = ["NotaTotal", "NotaMatematica", "NotaFisica", "NotaQuimica", "NotaBiologia", "NotaHistoria", "NotaGeografia", "NotaSociologia", "NotaFilosofia", "NotaGramatica", "NotaLiteratura"]
+    totaisMax = [66, 12, 7, 7, 7, 7, 7, 3, 3, 6, 7]
+
+    values = list(row[totais].iloc[0])
+
+    fig = px.bar(x=totais, y=values, color=totais, text=values)
+
+    fig.add_trace(go.Bar(
+        x=totais,
+        y=totaisMax,
+        name='Quantidade Máxima de Questões',
+        marker_color="red",
+        opacity=0.6,
+        text=totaisMax,
+    ))
+
+    st.plotly_chart(fig)    
