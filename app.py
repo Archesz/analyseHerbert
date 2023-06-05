@@ -93,7 +93,7 @@ with st.container():
 with st.container():
     st.header("Análise Box Por Períodos: ")
     disciplina = st.selectbox("Disciplina: ", ["Total", "Matematica", "Fisica", "Quimica", "Biologia",
-                                               "Historia", "Sociologia", "Filosofia", "Portugues"])
+                                               "Historia", "Sociologia", "Filosofia", "Gramatica", "Literatura"])
     pg.scatter_view(df, disciplina, view_students)
 
     with st.expander("Sugestões de Perguntas e Observações"):
@@ -108,10 +108,10 @@ with st.container():
     st.markdown(f"**Objetivo**: Verificar a relação nos estudantes entre diferentes disciplinas.")
 
     disciplina1 = st.selectbox("Disciplina 1: ", ["Total", "Matematica", "Fisica", "Quimica", "Biologia",
-                                               "Historia", "Sociologia", "Filosofia", "Portugues"])
+                                               "Historia", "Sociologia", "Filosofia", "Gramatica", "Literatura"])
     
     disciplina2 = st.selectbox("Disciplina 2: ", ["Total", "Matematica", "Fisica", "Quimica", "Biologia",
-                                               "Historia", "Sociologia", "Filosofia", "Portugues"])
+                                               "Historia", "Sociologia", "Gramatica", "Literatura"])
 
     pg.compare_disciplinas(df, disciplina1, disciplina2)
 
@@ -126,7 +126,7 @@ with st.container():
     st.markdown(f"**Objetivo**: Verificar a distribuição de acertos por Disciplina e Período.")
 
     disciplinaHist = st.selectbox("Escolha a Disciplina: ", ["Total", "Matematica", "Fisica", "Quimica", "Biologia",
-                                               "Historia", "Sociologia", "Filosofia", "Portugues"])
+                                               "Historia", "Sociologia", "Filosofia", "Gramatica", "Literatura"])
     periodo = st.selectbox("Escolha o Período: ", ["Geral", "Manhã", "Tarde", "Noite"])
 
     pg.histogramDist(df, disciplinaHist, periodo)
@@ -142,12 +142,12 @@ with st.container():
     st.markdown(f"**Objetivo**: Compreender em qual período está o maior défict entre os estudantes.")
 
     disciplinaDefict = st.selectbox("Qual disciplina: ", ["Total", "Matematica", "Fisica", "Quimica", "Biologia",
-                                               "Historia", "Sociologia", "Filosofia", "Portugues"])
+                                               "Historia", "Sociologia", "Filosofia", "Gramatica", "Literatura"])
     
     pg.deficts(df, disciplinaDefict)
 
     st.text("Obs: O défict é a média dos déficts de todos os alunos do periodo. O défict de cada aluno é calculado com: ")
-    st.latex("f(x, z) = \\frac{x, z} = y")
+    st.latex("f(x, z) = \\frac{x}{z} = y")
     st.text("x: Quantidade de questões corretas disciplina.")
     st.text("z: Quantidade total de questões da disciplina.")
     st.text("Dessa forma, quanto maior o valor, maior o défict.")

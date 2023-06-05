@@ -16,15 +16,16 @@ numero_questoes = {
     "Geografia": 7,
     "Sociologia": 3,
     "Filosofia": 3,
-    "Portugues": 13
+    "Gramatica": 6,
+    "Literatura": 7,
 }
 
 def show_disiciplina(df, periodo):
 
-    totais = ["NotaTotal", "NotaMatematica", "NotaFisica", "NotaQuimica", "NotaBiologia", "NotaHistoria", "NotaGeografia", "NotaSociologia", "NotaFilosofia", "NotaPortugues"]
+    totais = ["NotaTotal", "NotaMatematica", "NotaFisica", "NotaQuimica", "NotaBiologia", "NotaHistoria", "NotaGeografia", "NotaSociologia", "NotaFilosofia", "NotaGramatica", "NotaLiteratura"]
     medias = []
 
-    totaisMax = [66, 12, 7, 7, 7, 7, 7, 3, 3, 13]
+    totaisMax = [66, 12, 7, 7, 7, 7, 7, 3, 3, 6, 7]
 
     if periodo == "Geral":
         df = df

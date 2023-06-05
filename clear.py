@@ -14,7 +14,8 @@ def clear(df):
     total_biologia = []
     total_sociologia = []
     total_filosofia = []
-    total_portugues = []
+    total_gramatica = []
+    total_literatura = []
     total_historia = []
 
     for i in range(0, len(df)):
@@ -27,7 +28,8 @@ def clear(df):
         biologia = 0
         sociologia = 0
         filosofia = 0
-        portugues = 0
+        gramatica = 0
+        literatura = 0
         historia = 0
 
         for j in range(2, len(df.columns)):
@@ -47,10 +49,12 @@ def clear(df):
                     geografia += 1
                 elif "Biologia" in df.columns[j]:
                     biologia += 1
+                elif "Literatura" in df.columns[j]:
+                    literatura += 1
                 elif "Fisica" in df.columns[j]:
                     fisica += 1
-                elif "Linguagens" in df.columns[j]:
-                    portugues += 1
+                elif "Gramática" in df.columns[j]:
+                    gramatica += 1
                 elif "Quimica" in df.columns[j]:
                     quimica += 1
 
@@ -62,7 +66,8 @@ def clear(df):
         total_biologia.append(biologia)
         total_sociologia.append(sociologia)
         total_filosofia.append(filosofia)
-        total_portugues.append(portugues)
+        total_gramatica.append(gramatica)
+        total_literatura.append(literatura)
         total_historia.append(historia)
 
     df["NotaTotal"] = totais
@@ -73,7 +78,8 @@ def clear(df):
     df["NotaBiologia"] = total_biologia
     df["NotaSociologia"] = total_sociologia
     df["NotaFilosofia"] = total_filosofia
-    df["NotaPortugues"] = total_portugues
+    df["NotaGramatica"] = total_gramatica
+    df["NotaLiteratura"] = total_literatura
     df["NotaHistoria"] = total_historia
 
     df.to_csv("simulado_clean.csv")
