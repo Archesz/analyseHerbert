@@ -19,7 +19,7 @@ data = pd.read_csv("cursos.csv", sep=";")
 
 # Passar os dados para limpeza
 df = cl.clear(df)
-data = cl.clear_cursos(data)
+#data = cl.clear_cursos(data)
 
 st.warning("Esse projeto é parte do Projeto L.U.N.A.H | Desenvolvedor: Jovi | Em fase de desenvolvimento")
 
@@ -156,7 +156,7 @@ with st.container():
     st.header("Análise de Questões")
     st.markdown(f"**Objetivo**: Analisar questões específicas e verificar quais foram as alternativas selecionadas, buscando entender o pensamento dos estudantes.")
 
-    st.markdown("Caso precise verificar o simulado, basta clicar aqui: [Simulado 202301](https://docs.streamlit.io/knowledge-base/using-streamlit/create-anchor-link)")
+    st.markdown("Caso precise verificar o simulado, basta clicar aqui: [Simulado 202301](https://drive.google.com/file/d/1zrNFtx6iYo5VwHAUMBv6J8JH__58X1ka/view?usp=sharing)")
 
     questao = st.number_input("Selecione o Número da questão: ", min_value=1, max_value=66, step=1)
 
@@ -167,13 +167,13 @@ with st.container():
                 - Por que os estudantes optaram por alternativas erradas especificas?\n
                 """)
 
-with st.container():
-    st.header("Verificar Nota de Corte")
-    st.markdown("**Objetivo**: Verificar quantos estudantes passariam na nota de corte de determinado curso.")
-    st.markdown("O simulado foi feito co 6 questões a menos (Inglês), considerando que a média de acertos em inglês é 4, a analise será feita com uma soma de 4 questões aos estudantes.")
+#with st.container():
+    #st.header("Verificar Nota de Corte")
+    #st.markdown("**Objetivo**: Verificar quantos estudantes passariam na nota de corte de determinado curso.")
+    #st.markdown("O simulado foi feito co 6 questões a menos (Inglês), considerando que a média de acertos em inglês é 4, a analise será feita com uma soma de 4 questões aos estudantes.")
 
-    curso = st.selectbox("Curso: ", cursos) 
+    #curso = st.selectbox("Curso: ", cursos) 
 
-    if curso != "Selecione":
-        pg.get_cursos(data, df, curso)
+    #if curso != "Selecione":
+     #   pg.get_cursos(data, df, curso)
 

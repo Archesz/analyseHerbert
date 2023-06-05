@@ -89,6 +89,6 @@ def clear(df):
 df = pd.read_csv("simulado.csv")
 df = clear(df)
 
-def clear_cursos(df):
-    df = df.drop(df.columns[0], 1)
-    return df
+#def clear_cursos(df):
+#    df = df.drop([df.columns[0]], 1)
+#    return df
