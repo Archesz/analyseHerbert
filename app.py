@@ -156,7 +156,7 @@ with st.container():
     st.header("Análise de Questões")
     st.markdown(f"**Objetivo**: Analisar questões específicas e verificar quais foram as alternativas selecionadas, buscando entender o pensamento dos estudantes.")
 
-    st.markdown("Caso precise verificar o simulado, basta clicar aqui: [Simulado 202301](https://docs.streamlit.io/knowledge-base/using-streamlit/create-anchor-link)")
+    st.markdown("Caso precise verificar o simulado, basta clicar aqui: [Simulado 202301](https://drive.google.com/file/d/1zrNFtx6iYo5VwHAUMBv6J8JH__58X1ka/view?usp=sharing)")
 
     questao = st.number_input("Selecione o Número da questão: ", min_value=1, max_value=66, step=1)
 
