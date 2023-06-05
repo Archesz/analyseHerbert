@@ -170,9 +170,9 @@ with st.container():
 with st.container():
     st.header("Analise Individual do Estudante: ")
 
-    
-    aluno = st.selectbox("Selecione o Estudante: ", list(df["Nome"]))
-    pg.plot_student(df, aluno)
+    if view_students:    
+        aluno = st.selectbox("Selecione o Estudante: ", list(df["Nome"]))
+        pg.plot_student(df, aluno)
 
 with st.container():
     st.header("Verificar Nota de Corte")
