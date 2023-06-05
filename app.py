@@ -167,13 +167,13 @@ with st.container():
                 - Por que os estudantes optaram por alternativas erradas especificas?\n
                 """)
 
-with st.container():
-    st.header("Verificar Nota de Corte")
-    st.markdown("**Objetivo**: Verificar quantos estudantes passariam na nota de corte de determinado curso.")
-    st.markdown("O simulado foi feito co 6 questões a menos (Inglês), considerando que a média de acertos em inglês é 4, a analise será feita com uma soma de 4 questões aos estudantes.")
+#with st.container():
+    #st.header("Verificar Nota de Corte")
+    #st.markdown("**Objetivo**: Verificar quantos estudantes passariam na nota de corte de determinado curso.")
+    #st.markdown("O simulado foi feito co 6 questões a menos (Inglês), considerando que a média de acertos em inglês é 4, a analise será feita com uma soma de 4 questões aos estudantes.")
 
-    curso = st.selectbox("Curso: ", cursos) 
+    #curso = st.selectbox("Curso: ", cursos) 
 
-    if curso != "Selecione":
-        pg.get_cursos(data, df, curso)
+    #if curso != "Selecione":
+     #   pg.get_cursos(data, df, curso)
 
