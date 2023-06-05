@@ -10,7 +10,7 @@ regras = {
 
 cursos = ['Selecione', 'Administração (Noturno)', 'Administração Publica (Noturno)', 'Arquitetura e Urbanismo (Noturno)', 'Artes Cênicas (Integral)', 'Artes Visuais (Integral)', 'Ciência da Computação (Noturno)', 'Ciências Biológicas – Licenciatura (Noturno)', 'Ciências Biológicas (Integral)', 'Ciências do Esporte (Integral)', 'Ciências Econômicas (Integral)', 'Ciências Econômicas (Noturno)', 'Ciências Sociais (Integral)', 'Ciências Sociais (Noturno)', 'Comunicação Social-Midialogia (Integral)', 'Dança (Integral)', 'Educação Física (Integral)', 'Educação Física (Noturno)', 'Enfermagem (Integral)', 'Curso 51 – Ingresso para: Engenharia Física (Integral) Física (Integral) Física: Física Médica e Biomédica (Integral) Matemática (integral) Matemática Aplicada e Computacional (Integral)', 'Engenharia Agrícola (Integral)', 'Engenharia Ambiental (Noturno)', 'Engenharia Civil (Integral)', 'Engenharia de Alimentos (Integral)', 'Engenharia de Alimentos (Noturno)', 'Engenharia de Computação (Integral)', 'Engenharia de Controle e Automação (Noturno)', 'Engenharia de Manufatura (Integral)', 'Engenharia de Produção (Integral)', 'Engenharia de Telecomunicações (Integral)', 'Engenharia de Transportes (Noturno)', 'Engenharia Elétrica (Integral)', 'Engenharia Elétrica (Noturno)', 'Engenharia Mecânica (Integral)', 'Engenharia Química (Integral)', 'Engenharia Química (Noturno)', 'Estatística (Integral)', 'Estudos Literários (I)', 'Farmácia (Integral)', 'Filosofia (Integral)', 'Física – Licenciatura (Noturno)', 'Fonoaudiologia (Integral)', 'Geografia (Integral)', 'Geografia (Noturno)', 'Geologia (Integral)', 'Historia (Integral)', 'Letras – Licenciatura (Integral)', 'Letras – Licenciatura (Noturno)', 'Licenciatura Integrada Química/Física (Noturno)', 'Linguística (Integral)', 'Matemática – Licenciatura (Noturno)', 'Medicina (Integral)', 'Nutrição (Integral)', 'Odontologia (Integral)', 'Pedagogia – Licenciatura (Integral)', 'Pedagogia – Licenciatura (Noturno)', 'Química (Integral)', 'Química Tecnológica (Noturno)', 'Sistemas de Informação (Integral)', 'Tecnologia em Analise e Des. de Sist. (Noturno)', 'Tecnologia em Saneamento Ambiental (Noturno)']
 
-view_students = False
+view_students = True
 
 vestibular = "Unicamp"
 
@@ -170,9 +170,8 @@ with st.container():
 with st.container():
     st.header("Analise Individual do Estudante: ")
 
-    if view_students:    
-        aluno = st.selectbox("Selecione o Estudante: ", list(df["Nome"]))
-        pg.plot_student(df, aluno)
+    aluno = st.selectbox("Selecione o Estudante: ", list(df["Nome"]))
+    pg.plot_student(df, aluno)
 
 with st.container():
     st.header("Verificar Nota de Corte")
