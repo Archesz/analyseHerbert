@@ -14,11 +14,13 @@ view_students = False
 
 vestibular = "Unicamp"
 
-df = pd.read_csv("simulado.csv")
+df_base = pd.read_csv("simulado.csv")
 data = pd.read_csv("cursos.csv", sep=";")
 
 # Passar os dados para limpeza
-df = cl.clear(df)
+df = cl.clear(df_base)
+banco = pd.read_csv("bancoQuestoes.csv", sep=",")
+
 #data = cl.clear_cursos(data)
 
 st.warning("Esse projeto é parte do Projeto L.U.N.A.H | Desenvolvedor: Jovi | Em fase de desenvolvimento")
@@ -184,3 +186,10 @@ with st.container():
     if curso != "Selecione":
         pg.get_cursos(data, df, curso)
 
+with st.container():
+    periodo = st.selectbox("Período Para Identificar: ", ["Geral", "Manhã", "Tarde", "Noite"])
+    pg.viewDefictsTags(periodo)
+
+with st.container():
+    aluno = st.selectbox("Aluno: ", list(df["Nome"]))
+    pg.identifyByStudent(aluno)

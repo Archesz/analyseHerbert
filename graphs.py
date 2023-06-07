@@ -227,3 +227,66 @@ def plot_student(df, name):
     ))
 
     st.plotly_chart(fig)    
+
+
+def identifyProblems(periodo):
+
+    df = pd.read_csv("simulado.csv", sep=",")
+    banco = pd.read_csv("bancoQuestoes.csv", sep=",")
+    df.drop(index=df.index[0], axis=0, inplace=True)
+
+    deficts = {}
+
+    gabarito = ["D", "D", "B", "A", "C", "C", "D", "C", "B", "D", "C", "D", "D", "A", "D", "B", "D", "B", "A", "C", "C", "B", "A", "D", "C", "A", "B", "B", "C", "A", "D", "A",
+                "A", "B", "C", "B", "B", "A", "C", "B", "B", "D", "B", "A", "C", "B", "D", "B", "B", "B", "D", "C", "C", "D", "C", "A", "D", "C", "B", "D", "C", "D", "B", "C", "D", "D"]
+
+    if periodo != "Geral":
+        df = df.query(f"Período == '{periodo}'")
+    
+    
+
+    for i in range(0, len(df)):
+        aluno = df.iloc[i]
+        nome = aluno["Nome"]
+        deficts[nome] = {}
+
+        for j in range(2, len(df.columns) - 1):
+            if aluno[j] == gabarito[j-2]:
+                continue
+            else:
+                tags = banco.iloc[j-1]["Tags"].split(",")
+            for tag in tags:
+                if tag not in deficts[nome].keys():
+                    deficts[nome][tag.strip()] = 1
+                else:
+                    deficts[nome][tag] += 1  
+
+    return deficts
+
+def viewDefictsTags(periodo):
+    deficts = identifyProblems(periodo)
+    alunos = deficts.keys()
+    
+    tags_dict = {}
+
+    for aluno in alunos:
+        tags = deficts[aluno].keys()
+        for tag in tags:
+            if tag not in tags_dict.keys():
+                tags_dict[tag] = 1
+            else:
+                tags_dict[tag] += 1
+    
+    names = tags_dict.keys()
+    values = tags_dict.values()
+
+    fig = px.bar(x=names, y=values, color=names, title="Erros por Assuntos")
+    st.plotly_chart(fig)    
+
+def identifyByStudent(aluno):
+    deficts = identifyProblems("Geral")
+    names = list(deficts[aluno].keys())
+    values = list(deficts[aluno].values())
+
+    fig = px.bar(x=names, y=values, color=names, title="Erros por Assuntos")
+    st.plotly_chart(fig)    
