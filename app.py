@@ -110,10 +110,10 @@ with st.container():
     st.markdown(f"**Objetivo**: Verificar a relação nos estudantes entre diferentes disciplinas.")
 
     disciplina1 = st.selectbox("Disciplina 1: ", ["Total", "Matematica", "Fisica", "Quimica", "Biologia",
-                                               "Historia", "Sociologia", "Filosofia", "Gramatica", "Literatura"])
+                                               "Historia", "Sociologia", "Filosofia", "Gramatica", "Literatura", "Geografia"])
     
     disciplina2 = st.selectbox("Disciplina 2: ", ["Total", "Matematica", "Fisica", "Quimica", "Biologia",
-                                               "Historia", "Sociologia", "Gramatica", "Literatura"])
+                                               "Historia", "Sociologia", "Gramatica", "Literatura", "Geografia"])
 
     pg.compare_disciplinas(df, disciplina1, disciplina2)
 
@@ -174,6 +174,14 @@ with st.container():
 
     aluno = st.selectbox("Selecione o Estudante: ", list(df["Nome"]))
     pg.plot_student(df, aluno)
+    
+with st.container():
+    periodo = st.selectbox("Período Para Identificar: ", ["Geral", "Manhã", "Tarde", "Noite"])
+    pg.viewDefictsTags(periodo)
+
+with st.container():
+    aluno = st.selectbox("Aluno: ", list(df["Nome"]))
+    pg.identifyByStudent(aluno)
 
 with st.container():
     st.header("Verificar Nota de Corte")
@@ -184,11 +192,3 @@ with st.container():
 
     if curso != "Selecione":
         pg.get_cursos(data, df, curso)
-
-with st.container():
-    periodo = st.selectbox("Período Para Identificar: ", ["Geral", "Manhã", "Tarde", "Noite"])
-    pg.viewDefictsTags(periodo)
-
-with st.container():
-    aluno = st.selectbox("Aluno: ", list(df["Nome"]))
-    pg.identifyByStudent(aluno)
