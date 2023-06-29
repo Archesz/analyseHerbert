@@ -3,8 +3,9 @@ import plotly.graph_objects as go
 import streamlit as st
 import pandas as pd
 
-gabarito = ["D", "D", "B", "A", "C", "C", "D", "C", "B", "D", "C", "D", "D", "A", "D", "B", "D", "B", "A", "C", "C", "B", "A", "D", "C", "A", "B", "B", "C", "A", "D", "A",
-            "A", "B", "C", "B", "B", "A", "C", "B", "B", "D", "B", "A", "C", "B", "D", "B", "B", "B", "D", "C", "C", "D", "C", "A", "D", "C", "B", "D", "C", "D", "B", "C", "D", "D"]
+#gabarito = ["D", "D", "B", "A", "C", "C", "D", "C", "B", "D", "C", "D", "D", "A", "D", "B", "D", "B", "A", "C", "C", "B", "A", "D", "C", "A", "B", "B", "C", "A", "D", "A",
+#            "A", "B", "C", "B", "B", "A", "C", "B", "B", "D", "B", "A", "C", "B", "D", "B", "B", "B", "D", "C", "C", "D", "C", "A", "D", "C", "B", "D", "C", "D", "B", "C", "D", "D"]
+gabarito = ["D", "A", "A", "C", "E", "D", "B", "E", "E", "A", "B", "B", "C", "B", "E", "C", "C", "B", "B", "A", "A", "D", "D", "C", "D"]
 
 numero_questoes = {
     "Total": 66,
