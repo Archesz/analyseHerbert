@@ -14,12 +14,19 @@ view_students = True
 
 vestibular = "Unicamp"
 
-df_base = pd.read_csv("simulado.csv")
-data = pd.read_csv("cursos.csv", sep=";")
+simulados = {
+    "Simulado Unicamp 01": "simulado.csv",
+    "Colmeias": "SimuladoComeia.csv",
+}
 
+simulado_select = st.selectbox("Escolha o Simulado", ["Simulado Unicamp 01", "Colmeias"])
+
+#df_base = pd.read_csv("simulado.csv")
+#data = pd.read_csv("cursos.csv", sep=";")
+df_base = pd.read_csv(simulados[simulado_select])
 # Passar os dados para limpeza
-df = cl.clear(df_base)
-banco = pd.read_csv("bancoQuestoes.csv", sep=",")
+df = cl.clear(df_base, simulado_select)
+#banco = pd.read_csv("bancoQuestoes.csv", sep=",")
 
 #data = cl.clear_cursos(data)
 
@@ -59,18 +66,18 @@ with st.container():
     st.dataframe(df.describe())
 
     st.text("Resumo do Simulado: ")
-    st.text(f"Menor Número de Acertos: {min(df['NotaTotal'])}/{regras[vestibular][0]}")
-    st.text(f"Média Geral de Acertos: {round(df['NotaTotal'].mean())}/{regras[vestibular][0]}")
-    st.text(f"Maior Número de Acertos: {max(df['NotaTotal'])}/{regras[vestibular][0]}")
+    st.text(f"Menor Número de Acertos: {min(df['NotaTotal'])}/25")
+    st.text(f"Média Geral de Acertos: {round(df['NotaTotal'].mean())}/25")
+    st.text(f"Maior Número de Acertos: {max(df['NotaTotal'])}/25")
 
-    st.text(" ")
-    st.markdown("**Resumo gerado por L.U.N.A**")
-    st.markdown("**Tamanho da Amostra**:")
-    st.markdown("Pelas informações que tenho acesso, a quantidade de alunos que realizaram o simulado é abaixo do esperado para a quantidade dos estudantes presentes no Herbert. Nossa amostra conta com 38 estudantes, o cálculo sugere que necessitariamos de 62 estudantes para garantir melhores precisões nos resultados futuros.")
-
-    st.markdown("**Nota Total**:")
-    st.markdown("A nota total é a quantidade de acertos realizado pelos estudantes. A informação que possuo indica que não foram colocadas questões de Inglês. Dessa forma, a média dos estudantes foi 29 questões. Com desvio padrão de 7 questões.")
-    st.markdown("Considerando a média de acertos em inglês com 4 questões, caso atribuimos esse valor aos estudantes e analisando os últimos vestibulares da COMVEST, a média geral de pontuação não é suficientemente boa, no entanto, levando em consideração o fato de ser o primeiro simulado, a taxa de evolução média sugere que os resultados podem ser satisfatório para uma parcela considerável dos estudantes.")     
+    #st.text(" ")
+    #st.markdown("**Resumo gerado por L.U.N.A**")
+    #st.markdown("**Tamanho da Amostra**:")
+    #st.markdown("Pelas informações que tenho acesso, a quantidade de alunos que realizaram o simulado é abaixo do esperado para a quantidade dos estudantes presentes no Herbert. Nossa amostra conta com 38 estudantes, o cálculo sugere que necessitariamos de 62 estudantes para garantir melhores precisões nos resultados futuros.")
+#
+    #st.markdown("**Nota Total**:")
+    #st.markdown("A nota total é a quantidade de acertos realizado pelos estudantes. A informação que possuo indica que não foram colocadas questões de Inglês. Dessa forma, a média dos estudantes foi 29 questões. Com desvio padrão de 7 questões.")
+    #st.markdown("Considerando a média de acertos em inglês com 4 questões, caso atribuimos esse valor aos estudantes e analisando os últimos vestibulares da COMVEST, a média geral de pontuação não é suficientemente boa, no entanto, levando em consideração o fato de ser o primeiro simulado, a taxa de evolução média sugere que os resultados podem ser satisfatório para uma parcela considerável dos estudantes.")     
 
 st.divider()
 
