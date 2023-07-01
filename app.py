@@ -102,7 +102,7 @@ with st.container():
 with st.container():
     st.header("Análise Box Por Períodos: ")
     disciplina = st.selectbox("Disciplina: ", ["Total", "Matematica", "Fisica", "Quimica", "Biologia",
-                                               "Historia", "Sociologia", "Filosofia", "Gramatica", "Literatura"])
+                                               "Historia", "Sociologia", "Filosofia", "Gramatica", "Literatura", "Geografia"])
     pg.scatter_view(df, disciplina, view_students)
 
     with st.expander("Sugestões de Perguntas e Observações"):
@@ -135,7 +135,7 @@ with st.container():
     st.markdown(f"**Objetivo**: Verificar a distribuição de acertos por Disciplina e Período.")
 
     disciplinaHist = st.selectbox("Escolha a Disciplina: ", ["Total", "Matematica", "Fisica", "Quimica", "Biologia",
-                                               "Historia", "Sociologia", "Filosofia", "Gramatica", "Literatura"])
+                                               "Historia", "Sociologia", "Filosofia", "Gramatica", "Literatura", "Geografia"])
     periodo = st.selectbox("Escolha o Período: ", ["Geral", "Manhã", "Tarde", "Noite"])
 
     pg.histogramDist(df, disciplinaHist, periodo)
@@ -150,7 +150,7 @@ with st.container():
     st.header("Identificar Déficit")
     st.markdown(f"**Objetivo**: Compreender em qual período está o maior défict entre os estudantes.")
 
-    disciplinaDefict = st.selectbox("Qual disciplina: ", ["Total", "Matematica", "Fisica", "Quimica", "Biologia",
+    disciplinaDefict = st.selectbox("Qual disciplina: ", ["Total", "Matematica", "Fisica", "Quimica", "Biologia", "Geografia",
                                                "Historia", "Sociologia", "Filosofia", "Gramatica", "Literatura"])
     
     pg.deficts(df, disciplinaDefict)
